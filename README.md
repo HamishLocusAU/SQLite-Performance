@@ -1,3 +1,5 @@
+DISCLAIMER: This repo is mostly AI written
+
 # SQLite Performance Comparison: Check Constraints
 
 This project benchmarks the performance impact of using check constraints in SQLite tables. It creates two databases—one with constraints and one without—and measures the time taken to insert a large number of rows into each.
