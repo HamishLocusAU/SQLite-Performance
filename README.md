@@ -25,6 +25,3 @@ This project benchmarks the performance impact of using check constraints in SQL
 ## Customization
 - Change `NUM_ROWS` in the script to adjust the number of rows inserted.
 - Modify constraints or add more fields as needed for your own tests.
-
-## License
-MIT
