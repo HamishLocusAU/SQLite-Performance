@@ -5,7 +5,7 @@ import os
 DB_WITH_CONSTRAINT = 'with_constraint.db'
 DB_NO_CONSTRAINT = 'no_constraint.db'
 TABLE_NAME = 'test_table'
-NUM_ROWS = 100000
+NUM_ROWS = 1000000
 
 def setup_db(db_name, with_constraint):
     if os.path.exists(db_name):
@@ -76,10 +76,16 @@ def main():
     time_without = time_inserts(DB_NO_CONSTRAINT)
     print(f'Insert time without constraint: {time_without:.2f} seconds')
 
-    print('\nSummary:')
+    print(f'\nSummary ({NUM_ROWS:,} Rows):')
     print(f'With constraint: {time_with:.2f} s')
     print(f'Without constraint: {time_without:.2f} s')
     print(f'Difference: {time_with - time_without:.2f} s')
+
+    print('\nPer 100 Rows:')
+    print(f'With constraint: {((time_with*1000)/NUM_ROWS*100):.2f} ms')
+    print(f'Without constraint: {((time_without*1000)/NUM_ROWS*100):.2f} ms')
+    print(f'Difference: {(((time_with - time_without)*1000)/NUM_ROWS*100):.2f} ms')
+
 
 if __name__ == '__main__':
     main()
